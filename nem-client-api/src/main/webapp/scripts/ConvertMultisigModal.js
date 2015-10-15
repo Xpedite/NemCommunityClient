@@ -117,7 +117,8 @@ define(['NccModal', 'Utils', 'TransactionType', 'handlebars', 'typeahead'], func
             var $cosignatory = $('.js-cosignatory').last();
 
             var self = this;
-            $cosignatory.on('paste', function(e) { Utils.mask.paste(e, 'address', self); self.typeaheadHack(); self.resetMinCosignatories(); });
+            // the issue is that typeaheadHack is not a function, don't know if it would work with removing the hack , to be confirmed
+            $cosignatory.on('paste', function(e) { Utils.mask.paste(e, 'address', self); self.typeahead(); self.resetMinCosignatories(); });
             $cosignatory.on('keyup blur focus', function(e) {
                 self.resetMinCosignatories();
             });
